@@ -28,13 +28,14 @@ const InputError = require('../exceptions/InputError');
                     if (response instanceof InputError) {
                         const newResponse = h.response({
                             status: 'fail',
-                            message: `${response.message} Silakan gunakan foto lain.`
+                            message: `${response.message}`
                             })
                             newResponse.code(response.statusCode)
                             return newResponse;
                             }
                             
                             if (response.isBoom) {
+                                
                                 const newResponse = h.response({
                                     status: 'fail',
                                     message: response.message
